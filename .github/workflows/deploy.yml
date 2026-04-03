@@ -1,0 +1,13 @@
+name: deploy react 
+on:
+ push:
+  branches:
+   - master
+jobs:
+ build:
+  runs-on: ubuntu-latest
+  steps:
+   - uses: actions/checkout@v2
+   - run: docker login -u ${{ secrets.DOCKER_USERNAME }} -P ${{ secrets.DOCKER_PASSWORD }}
+   - run: docker build -t tahanyyedress/docker-react -f Dockerfile.dev .
+   - run: docker run -e CI=true tahanyyedress/docker-react npm run test

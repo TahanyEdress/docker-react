@@ -17,7 +17,7 @@ pipeline {
         stage('Run Tests') {
             steps {
                 script {
-                    env.DOCKER_BUILDKIT = 1  #optinal
+                    env.DOCKER_BUILDKIT = 1  
                     sh 'docker run -e CI=true tahany/docker-react npm run test'
                 }
             }

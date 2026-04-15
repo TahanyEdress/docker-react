@@ -10,17 +10,17 @@ jobs:
   steps:
    - uses: actions/checkout@v2 
    - run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-   - run: docker build -t tahanyedress/docker-react -f Dockerfile.dev .
-   - run: docker run -e CI=true tahanyedress/docker-react npm run test
-   - run: docker build -t tahanyedress/multi-client ./microservices/client
-   - run: docker build -t tahanyedress/multi-nginx  ./microservices/nginx
-   - run: docker build -t tahanyedress/multi-server ./microservices/server
-   - run: docker build -t tahanyedress/multi-worker ./microservices/worker
+   - run: docker build -t tahany/docker-react -f Dockerfile.dev .
+   - run: docker run -e CI=true tahany/docker-react npm run test
+   - run: docker build -t tahany/multi-client ./microservices/client
+   - run: docker build -t tahany/multi-nginx  ./microservices/nginx
+   - run: docker build -t tahany/multi-server ./microservices/server
+   - run: docker build -t tahany/multi-worker ./microservices/worker
    
-   - run: docker push tahanyedress/multi-client 
-   - run: docker push tahanyedress/multi-nginx
-   - run: docker push tahanyedress/multi-server
-   - run: docker push tahanyedress/multi-worker
+   - run: docker push tahany/multi-client 
+   - run: docker push tahany/multi-nginx
+   - run: docker push tahany/multi-server
+   - run: docker push tahany/multi-worker
    
     ## create artifcat for deployment
     #   - name: Create deployment package 

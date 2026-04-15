@@ -22,7 +22,7 @@ jobs:
    - run: docker push tahanyedress/multi-server
    - run: docker push tahanyedress/multi-worker
    
-    # create artifcat for deployment
+    ## create artifcat for deployment
     #   - name: Create deployment package 
     #     run : zip -r deploy.zip . -x '*.git*'
 
